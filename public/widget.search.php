@@ -10,7 +10,9 @@ class Search_Widget extends WP_Widget {
 
         $widget_opts = array(
             'classname' => 'search-widget',
-            'description' => 'Wasi properties search widget'
+            'description' => 'Wasi properties search widget',
+            'filter'=> 'Filtro'
+
         );
         parent::__construct('wasi_search_widget', __('Wasi Search', $this->lang_context), $widget_opts);
     }
