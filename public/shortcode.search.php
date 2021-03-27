@@ -13,7 +13,8 @@ function renderWasiSearch($parent, $instance) {
     $instance = shortcode_atts(
         array(
             'formClass' => 'row',
-            'submitClass' => 'btn btn-primary'
+            'submitClass' => 'btn btn-primary',
+            'filtro'=>'oe'
         ), $instance, 'wasi-search' );
 
     if(!$instance) { $instance = []; }
