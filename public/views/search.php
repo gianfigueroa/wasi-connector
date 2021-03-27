@@ -1,7 +1,7 @@
 <div id="wasiSearchApp" class="wasi_search">
     <form action="/<?php echo $properties_slug; ?>" method="GET" role="form" class="<?php echo $instance['formClass'] ?>"
         v-on:submit.prevent="wasiSearchProperties">
-        
+        <h1><?php echo $instance['filtro'] ?> </h1>
         <div class="form-group">
             <label for="keyword-match"><?php _e('Keyword:', 'wasico'); ?></label>
             <input id="keyword-match" placeholder="<?php _e('Keyword', 'wasico'); ?>" name="match" type="text" class="form-control inp-text" v-model="filters.match">
