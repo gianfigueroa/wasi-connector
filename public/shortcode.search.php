@@ -14,11 +14,13 @@ function renderWasiSearch($parent, $instance) {
         array(
             'formClass' => 'row',
             'submitClass' => 'btn btn-primary',
-            'filtro'=>'oe'
+            'filtro'=>'',
+            "countries"=>''
         ), $instance, 'wasi-search' );
 
     if(!$instance) { $instance = []; }
-        
+    $filter=explode(",", $instance['filtro']);
+    $countries=explode(",", $instance['countries']);
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
     $wasiCountries = $parent->getAPIClient()->getCountries();
