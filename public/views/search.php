@@ -24,7 +24,7 @@
                     <?php
                     } else { ?>
                         <?php
-                        echo '<option value="' . $keyAux . '">' . $statusA . '</option>';
+                        echo '<option value="' . $keyAux . '">' . $statusAux . '</option>';
                         ?>
                     <?php
                     } ?>
