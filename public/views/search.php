@@ -1,6 +1,6 @@
 <div id="wasiSearchApp" class="wasi_search">
     <form action="/<?php echo $properties_slug; ?>" method="GET" role="form" class="<?php echo $instance['formClass'] ?>" v-on:submit.prevent="wasiSearchProperties">
-        <h1><?php echo $instance['filtro'] ?> </h1>
+
         <?php if (in_array("keyword", $filter)) {
         ?>
             <div class="form-group">
@@ -14,10 +14,21 @@
             <div class="form-group">
                 <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
                 <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
-                    <option value="0"><?php _e('All', 'wasico'); ?></option>
+                    <?php if (empty($instance['btype'])) {
+                    ?>
+                        <option value="0"><?php _e('All', 'wasico'); ?></option>
 
-                    <?php foreach ($propertyStatus as $key => $status) {
-                        echo '<option value="' . $key . '">' . $status . '</option>';
+                        <?php foreach ($propertyStatus as $key => $status) {
+                            echo '<option value="' . $key . '">' . $status . '</option>';
+                        } ?>
+                    <?php
+                    } else { ?>
+                        <?php foreach ($propertyStatus as $key => $status) {
+                            if ($key == $instance['btype']) {
+                                echo '<option value="' . $key . '">' . $status . '</option>';
+                            }
+                        } ?>
+                    <?php
                     } ?>
                 </select>
             </div>
