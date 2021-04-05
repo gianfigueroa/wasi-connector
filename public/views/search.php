@@ -15,14 +15,16 @@
                 <label for="">' . _e('Looking for:', 'wasico') .
                 '</label>
                 <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">';
-            if (in_array($instance['btype'], $propertyStatus)) {
-                if ($key == $instance['btype']) {
-                    echo '<option value="' . $key . '">' . $status . '</option>';
-                }
-            } else {
+            if (empty($instance['btype'])) {
                 echo '<option value="0">' . _e('All', 'wasico') . '</option>';
                 foreach ($propertyStatus as $key => $status) {
                     echo '<option value="' . $key . '">' . $status . '</option>';
+                }
+            } else {
+                foreach ($propertyStatus as $key => $status) {
+                    if ($key == $instance['btype']) {
+                        echo '<option value="' . $key . '">' . $status . '</option>';
+                    }
                 }
             }
 
