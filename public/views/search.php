@@ -23,7 +23,7 @@
             } else {
                 foreach ($propertyStatus as $key => $status) {
                     if ($key == $instance['btype']) {
-                        echo '<option value="' . $key . '">' . $status . '</option>';
+                        echo '<option selected="true" disabled="disabled" value="' . $key . '">' . $status . '</option>';
                     }
                 }
             }
