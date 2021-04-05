@@ -22,16 +22,26 @@ function renderWasiSearch($parent, $instance) {
     if(!$instance) { $instance = []; }
     $filter=explode(",", $instance['filtro']);
     $countries=explode(",", $instance['countries']);
+    $keyAux="";
+    $statusAux="";
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
     $wasiCountries = $parent->getAPIClient()->getCountries();
+    if (empty($instance['btype'])) {
+        foreach ($propertyStatus as $key => $status) {
+            if ($key == $instance['btype']) {
+                $keyAux=$key;
+                $statusAux=$status;
+            }
+        }
+    }
     // $atts['propertyTypes'] = $parent->getAPIClient()->getPropertyTypes();
     // $atts['propertyPage'] = get_post($parent->getWasiData()['property_single_page'])->post_name;
 
     ob_start();
 
     require_once('views/search.php');
-        
+
     $out = ob_get_clean();
     return $out;
 }

@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
                 <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
-                    <?php if (empty($instance['btype'])) {
+                    <?php if (empty($keyAux)) {
                     ?>
                         <option value="0"><?php _e('All', 'wasico'); ?></option>
 
@@ -23,11 +23,7 @@
                         } ?>
                     <?php
                     } else { ?>
-                        <?php foreach ($propertyStatus as $key => $status) {
-                            if ($key == $instance['btype']) {
-                                echo '<option value="' . $key . '">' . $status . '</option>';
-                            }
-                        } ?>
+                        <option value="<?php $keyAux; ?>"><?php $statusAux; ?></option>
                     <?php
                     } ?>
                 </select>
