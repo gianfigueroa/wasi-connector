@@ -6,11 +6,11 @@
             echo '<div class="form-group">
                 <label for="keyword-match">' . _e('Keyword:', 'wasico') . '</label>
                 <input id="keyword-match" placeholder="' . _e('Keyword', 'wasico') . 
-            'name="match" type="text" class="form-control inp-text" v-model="filters.match">
+            '" name="match" type="text" class="form-control inp-text" v-model="filters.match">
             </div>';
         }
         ?>
- 
+
         <?php if (in_array("btype", $filter)) {
             echo '<div class="form-group">
                 <label for="">' . _e('Looking for:', 'wasico') .
