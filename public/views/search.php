@@ -17,7 +17,12 @@
                 <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
                     <option value="0">' . _e('All', 'wasico') . '</option>';
             foreach ($propertyStatus as $key => $status) {
-                echo '<option value="' . $key . '">' . $status . '</option>';
+                if($key==$instance['btype']){
+                    echo '<option selected value="' . $key . '">' . $status . '</option>';
+                }else{
+                    echo '<option value="' . $key . '">' . $status . '</option>';
+                }
+                
             }
             echo ' </select>
               </div>';

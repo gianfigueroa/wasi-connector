@@ -15,7 +15,8 @@ function renderWasiSearch($parent, $instance) {
             'formClass' => 'row',
             'submitClass' => 'btn btn-primary',
             'filtro'=>'',
-            "countries"=>''
+            'countries'=>'',
+            'btype'=>"0"
         ), $instance, 'wasi-search' );
 
     if(!$instance) { $instance = []; }
