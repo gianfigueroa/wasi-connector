@@ -1,11 +1,11 @@
 <div id="wasiSearchApp" class="wasi_search">
     <form action="/<?php echo $properties_slug; ?>" method="GET" role="form" class="<?php echo $instance['formClass'] ?>" v-on:submit.prevent="wasiSearchProperties">
-        <h1><?php echo $properties_slug; ?>"</h1>
+
         <?php if (in_array("keyword", $filter)) {
-        
+
             echo '<div class="form-group">
-                <label for="keyword-match">'._e('Keyword:', 'wasico').'</label>
-                <input id="keyword-match" placeholder="'._e('Keyword', 'wasico').'" name="match" type="text" class="form-control inp-text" v-model="filters.match">
+                <label for="keyword-match">' . _e('Keyword:', 'wasico') . '</label>
+                <input id="keyword-match" placeholder="' . _e('Keyword', 'wasico') . '" name="match" type="text" class="form-control inp-text" v-model="filters.match">
             </div>';
         }
         ?>
@@ -14,16 +14,19 @@
             echo '<div class="form-group">
                 <label for="">' . _e('Looking for:', 'wasico') .
                 '</label>
-                <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
-                    <option value="0">' . _e('All', 'wasico') . '</option>';
-            foreach ($propertyStatus as $key => $status) {
-                if($key==$instance['btype']){
-                    echo '<option selected value="' . $key . '">' . $status . '</option>';
-                }else{
+                <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">';
+            if (in_array($instance['btype'], $propertyStatus)) {
+                if ($key == $instance['btype']) {
                     echo '<option value="' . $key . '">' . $status . '</option>';
                 }
-                
+            } else {
+                echo '<option value="0">' . _e('All', 'wasico') . '</option>';
+                foreach ($propertyStatus as $key => $status) {
+                    echo '<option value="' . $key . '">' . $status . '</option>';
+                }
             }
+
+
             echo ' </select>
               </div>';
         }

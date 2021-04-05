@@ -31,7 +31,7 @@ function renderWasiSearch($parent, $instance) {
     ob_start();
 
     require_once('views/search.php');
-
+        
     $out = ob_get_clean();
     return $out;
 }
