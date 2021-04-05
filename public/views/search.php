@@ -4,8 +4,8 @@
         <?php if (in_array("keyword", $filter)) {
 
             echo '<div class="form-group">
-                <label for="keyword-match">'._e('Keyword:', 'wasico').'</label>
-                <input id="keyword-match" placeholder="'._e('Keyword', 'wasico').'" name="match" type="text" class="form-control inp-text" v-model="filters.match">
+                <label for="keyword-match">'{._e('Keyword:', 'wasico')}.'</label>
+                <input id="keyword-match" placeholder="'.{_e('Keyword', 'wasico').}'" name="match" type="text" class="form-control inp-text" v-model="filters.match">
             </div>';
         }
         ?>
