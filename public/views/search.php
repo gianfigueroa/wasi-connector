@@ -23,7 +23,9 @@
                         } ?>
                     <?php
                     } else { ?>
-                
+                        <?php
+                        echo '<option hidden value="' . $keyAux . '">' . $statusAux . '</option>';
+                        ?>
                         <option value="<?php echo $keyAux ?>"><?php echo $statusAux ?></option>
 
                     <?php
