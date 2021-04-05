@@ -61,6 +61,7 @@ A continuación los detalles de cada uno.
 El más importante es el shortcode [wasi-properties] el cual es el encargado de mostrar el listado completo de propiedades de wasi.co.  Este shortcode tiene varios atributos de personalización que permiten modificar su agregar filtros y modificar su layout.
 Ejemplo:
 `[wasi-properties layout="grid" featured="true" limit="9" btn-class="search-btn" tags-bg-color="#db2723"]`
+`[wasi-search  formClass="row" submitClass="btn btn-primary" filtro="keyword,btype,type,bedrooms,bathrooms,country,region,city,zone,prange,arange" countries="CO,USA"]`
 
 Estos atributos son:
 
