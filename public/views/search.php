@@ -2,23 +2,27 @@
     <form action="/<?php echo $properties_slug; ?>" method="GET" role="form" class="<?php echo $instance['formClass'] ?>" v-on:submit.prevent="wasiSearchProperties">
         <h1><?php echo $instance['filtro'] ?> </h1>
         <?php if (in_array("keyword", $filter)) {
-        }
         ?>
-        <div class="form-group">
-            <label for="keyword-match"><?php _e('Keyword:', 'wasico'); ?></label>
-            <input id="keyword-match" placeholder="<?php _e('Keyword', 'wasico'); ?>" name="match" type="text" class="form-control inp-text" v-model="filters.match">
-        </div>
+            <div class="form-group">
+                <label for="keyword-match"><?php _e('Keyword:', 'wasico'); ?></label>
+                <input id="keyword-match" placeholder="<?php _e('Keyword', 'wasico'); ?>" name="match" type="text" class="form-control inp-text" v-model="filters.match">
+            </div>
+        <?php
+        } ?>
+        <?php if (in_array("type", $filter)) {
+        ?>
+            <div class="form-group">
+                <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
+                <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
+                    <option value="0"><?php _e('All', 'wasico'); ?></option>
 
-        <div class="form-group">
-            <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
-            <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
-                <option value="0"><?php _e('All', 'wasico'); ?></option>
-
-                <?php foreach ($propertyStatus as $key => $status) {
-                    echo '<option value="' . $key . '">' . $status . '</option>';
-                } ?>
-            </select>
-        </div>
+                    <?php foreach ($propertyStatus as $key => $status) {
+                        echo '<option value="' . $key . '">' . $status . '</option>';
+                    } ?>
+                </select>
+            </div>
+        <?php
+        } ?>
         <div class="form-group">
             <label for="id_property_type"><?php _e('Type:', 'wasico'); ?></label>
             <select class="selectpicker" name="id_property_type" id="id_property_type" v-model="filters.id_property_type">
