@@ -23,10 +23,10 @@
                         } ?>
                     <?php
                     } else { ?>
+                       <option hidden value="0"><?php _e('All', 'wasico'); ?></option>
                         <?php
-                        echo '<option hidden value="' . $keyAux . '">' . $statusAux . '</option>';
+                        echo '<option  value="' . $keyAux . '">' . $statusAux . '</option>';
                         ?>
-                        <option value="<?php echo $keyAux ?>"><?php echo $statusAux ?></option>
 
                     <?php
                     } ?>
