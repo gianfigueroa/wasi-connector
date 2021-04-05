@@ -27,7 +27,7 @@ function renderWasiSearch($parent, $instance) {
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
     $wasiCountries = $parent->getAPIClient()->getCountries();
-    if (empty($instance['btype'])) {
+    if (!empty($instance['btype'])) {
         foreach ($propertyStatus as $key => $status) {
             if ($key == $instance['btype']) {
                 $keyAux=$key;
