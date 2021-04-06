@@ -171,9 +171,13 @@
 </div>
 
 <script>
-  
-    document.addEventListener("DOMContentLoaded", function() {
+    function clickBuscar() {
         document.getElementById("search-btn").click()
-        document.removeEventListener("DOMContentLoaded",this)
-});
+
+    };
+    document.getElementById("search-btn").addEventListener("click", function() {
+        document.removeEventListener("DOMContentLoaded", clickBuscar);
+
+    })
+    document.addEventListener("DOMContentLoaded", clickBuscar);
 </script>
