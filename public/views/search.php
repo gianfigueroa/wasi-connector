@@ -169,15 +169,18 @@
         </div>
     </form>
 </div>
-
+<?php if(empty($_GET)){?>
 <script>
-    function clickBuscar() {
-        document.getElementById("search-btn").click()
 
-    };
-    document.getElementById("search-btn").addEventListener("click", function() {
-        document.removeEventListener("DOMContentLoaded", clickBuscar);
+  function clickBuscar() {
+    document.getElementById("search-btn").click()
 
-    })
-    document.addEventListener("DOMContentLoaded", clickBuscar);
+};
+
+document.addEventListener("DOMContentLoaded", clickBuscar);
+
+  
 </script>
+<?php 
+}
+?>
