@@ -174,6 +174,6 @@
   
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("search-btn").click()
-        document.removeEventListener("DOMContentLoaded")
+        document.removeEventListener("DOMContentLoaded",this)
 });
 </script>
