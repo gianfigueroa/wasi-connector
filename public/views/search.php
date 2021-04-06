@@ -171,7 +171,9 @@
 </div>
 
 <script>
+  
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("search-btn").click()
+        document.removeEventListener("DOMContentLoaded")
 });
 </script>

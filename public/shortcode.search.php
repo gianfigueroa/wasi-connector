@@ -24,6 +24,7 @@ function renderWasiSearch($parent, $instance) {
     $countries=explode(",", $instance['countries']);
     $keyAux="";
     $statusAux="";
+   
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
     $wasiCountries = $parent->getAPIClient()->getCountries();
