@@ -1,5 +1,5 @@
 <div id="wasiApp" class="listings-row">
-    <h1>sadas</h1>
+
     <div v-show="app_ready===true && loading===false && properties.length<=0" class="listings-not-found text-center" v-cloak>
         <h3><?php _e('Properties not found!', 'wasico'); ?></h3>
         <span><?php _e('Try again with different filters.', 'wasico'); ?></span>
@@ -17,6 +17,7 @@
             <div class="listing-row-properties">
                 <h3 class="listing-row-title"><a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
                 <address v-html="prop.city_label+', '+prop.region_label"></address>
+                <p>{{prop.observations}}</p>
                 <dl>
                     <dt><?php _e('Rooms', 'wasico'); ?></dt>
                     <dd>{{prop.bedrooms}}</dd>
