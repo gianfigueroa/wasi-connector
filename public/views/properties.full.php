@@ -17,7 +17,8 @@
             <div class="listing-row-properties">
                 <h3 class="listing-row-title"><a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
                 <address v-html="prop.city_label+', '+prop.region_label"></address>
-                <p>{{prop.observations}}</p>
+               
+                <p v-html="prop.observations"></p>
                 <dl>
                     <dt><?php _e('Rooms', 'wasico'); ?></dt>
                     <dd>{{prop.bedrooms}}</dd>
