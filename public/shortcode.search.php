@@ -14,13 +14,13 @@ function renderWasiSearch($parent, $instance) {
         array(
             'formClass' => 'row',
             'submitClass' => 'btn btn-primary',
-            'filtro'=>'',
+            'filter'=>'',
             'countries'=>'',
             'btype'=>"0"
         ), $instance, 'wasi-search' );
 
     if(!$instance) { $instance = []; }
-    $filter=explode(",", $instance['filtro']);
+    $filter=explode(",", $instance['filter']);
     $countries=explode(",", $instance['countries']);
     $keyAux="";
     $statusAux="";
