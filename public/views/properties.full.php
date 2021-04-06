@@ -24,10 +24,6 @@
                     <dd>{{prop.bedrooms}}</dd>
                     <dt><?php _e('Bathrooms', 'wasico'); ?></dt>
                     <dd>{{prop.bathrooms}}</dd>
-                </dl>
-            </div>
-            <div class="listing-row-properties">
-                <dl>
                     <dt v-if="prop.for_rent=='true' && prop.rent_price>0"><?php _e('Rent price', 'wasico'); ?></dt>
                     <dd v-if="prop.for_rent=='true' && prop.rent_price>0">
                         <span>{{prop.rent_price | formatNumber}} {{prop.iso_currency}}</span>
@@ -40,6 +36,12 @@
                     <dd>{{prop.area}} {{prop.unit_built_area_label}}</dd>
                 </dl>
             </div>
+            <!--
+            <div class="listing-row-properties">
+                <dl>
+                    
+                </dl>
+            </div>-->
         </div>
     </article>
     <!-- pagination: -->
