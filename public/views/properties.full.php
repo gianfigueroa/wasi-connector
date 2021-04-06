@@ -33,7 +33,7 @@
                 </dl>
             </div>
             <div class="listing-row-image" >
-                <img src="prop.main_image.url" alt="">
+                <img v-bind:src="prop.main_image.url" alt="">
                 <a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" class="listing-row-image-link"></a>
                 <!-- <div class="listing-row-label-top listing-row-label-top-left">Featured</div> -->
                 <div class="listing-row-label-bottom">{{getPropertyType(prop.id_property_type)}}</div>
