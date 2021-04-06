@@ -22,10 +22,11 @@
                             echo '<option value="' . $key . '">' . $status . '</option>';
                         } ?>
                     <?php
-                    } else if($instance["btype"]=="for_rent"){ ?>
-                                           <option value="for_rent"><?php _e('All', 'wasico'); ?></option>
+                    } else { ?>
+                        <?php
+                        echo '<option  value="' . $keyAux . '" selected>' . $statusAux . '</option>';
+                        ?>
 
-                  
                     <?php
                     } ?>
                 </select>
