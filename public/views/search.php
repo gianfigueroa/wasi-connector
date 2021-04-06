@@ -13,23 +13,26 @@
         ?>
             <div class="form-group">
                 <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
-                <select class="selectpicker" name="for_type" id="for_type" >
-                    <?php if (empty($keyAux)) {
-                    ?>
+
+                <?php if (empty($keyAux)) {
+                ?>
+                    <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
                         <option value="0"><?php _e('All', 'wasico'); ?></option>
 
                         <?php foreach ($propertyStatus as $key => $status) {
                             echo '<option value="' . $key . '">' . $status . '</option>';
                         } ?>
-                    <?php
-                    } else { ?>
+                    </select>
+                <?php
+                } else { ?>
+                    <select class="selectpicker" name="for_type" id="for_type">
                         <?php
                         echo '<option  value="' . $keyAux . '" selected>' . $statusAux . '</option>';
                         ?>
-                                
-                    <?php
-                    } ?>
-                </select>
+                    </select>
+                <?php
+                } ?>
+
             </div>
         <?php
         } ?>
