@@ -13,7 +13,7 @@
         ?>
             <div class="form-group">
                 <label for=""><?php _e('Looking for:', 'wasico'); ?></label>
-                <select class="selectpicker" name="for_type" id="for_type" v-model="filters.for_type">
+                <select class="selectpicker" name="for_type" id="for_type" >
                     <?php if (empty($keyAux)) {
                     ?>
                         <option value="0"><?php _e('All', 'wasico'); ?></option>
@@ -23,8 +23,10 @@
                         } ?>
                     <?php
                     } else { ?>
-                     
-                        <option value="asd">asd</option>                    
+                        <?php
+                        echo '<option  value="' . $keyAux . '" selected>' . $statusAux . '</option>';
+                        ?>
+                                
                     <?php
                     } ?>
                 </select>
