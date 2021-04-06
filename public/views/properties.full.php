@@ -8,18 +8,16 @@
         <h3><?php _e('Searching properties...', 'wasico'); ?></h3>
     </div>
     <article class="listing-container" v-for="prop in properties" v-cloak>
-        <div class="listing-row">
-            <!-- class featured in case of define any way to detect it -->
-            <div class="listing-row-image">
-                <img v-bind:src="prop.main_image.url" alt="">
-                <a v-bind:href="'<?php echo home_url('/') . $atts['propertyPage']; ?>/'+prop.id_property" class="listing-row-image-link"></a>
+        <div class="listing-row"> <!-- class featured in case of define any way to detect it -->
+            <div class="listing-row-image" v-bind:style="prop.thumbnail">
+                <a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" class="listing-row-image-link"></a>
                 <!-- <div class="listing-row-label-top listing-row-label-top-left">Featured</div> -->
                 <div class="listing-row-label-bottom">{{getPropertyType(prop.id_property_type)}}</div>
             </div>
             <div class="listing-row-properties">
-                <h3 class="listing-row-title"><a v-bind:href="'<?php echo home_url('/') . $atts['propertyPage']; ?>/'+prop.id_property">{{prop.title}}</a></h3>
+                <h3 class="listing-row-title"><a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
                 <address v-html="prop.city_label+', '+prop.region_label"></address>
-
+               
                 <p v-html="prop.observations"></p>
                 <dl>
                     <dt><?php _e('Rooms', 'wasico'); ?></dt>
@@ -38,7 +36,6 @@
                     <dd>{{prop.area}} {{prop.unit_built_area_label}}</dd>
                 </dl>
             </div>
-
             <!--
             <div class="listing-row-properties">
                 <dl>
@@ -48,21 +45,22 @@
         </div>
     </article>
     <!-- pagination: -->
-    <nav aria-label="Page navigation" class="nav-container pagination hidden" v-show="total_pages>0 && total_properties>properties_per_page" v-cloak>
-        <ul class="pagination pagination-inner">
-            <li>
-                <a href="#" aria-label="Previous" v-on:click="previousPage()">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li v-for="page in total_pages" v-bind:class="activePageClass(page)">
-                <a href="#" v-on:click.stop="paginate(page)">{{page}}</a>
-            </li>
-            <li>
-                <a href="#" aria-label="Next" v-on:click="nextPage()">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+    <nav aria-label="Page navigation" class="nav-container pagination hidden" 
+        v-show="total_pages>0 && total_properties>properties_per_page" v-cloak>
+      <ul class="pagination pagination-inner">
+        <li>
+          <a href="#" aria-label="Previous" v-on:click="previousPage()">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li v-for="page in total_pages" v-bind:class="activePageClass(page)">
+            <a href="#" v-on:click.stop="paginate(page)">{{page}}</a>
+        </li>
+        <li>
+          <a href="#" aria-label="Next" v-on:click="nextPage()">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
     </nav>
 </div>
