@@ -9,13 +9,12 @@
     </div>
     <article class="listing-container" v-for="prop in properties" v-cloak>
         <div class="listing-row"> <!-- class featured in case of define any way to detect it -->
-   
+  
             <div class="listing-row-properties">
                 <h3 class="listing-row-title"><a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
                 <address v-html="prop.city_label+', '+prop.region_label"></address>
                
                 <p v-html="prop.observations"></p>
-                <p>{{prop}}</p>
                 <dl>
                     <dt><?php _e('Rooms', 'wasico'); ?></dt>
                     <dd>{{prop.bedrooms}}</dd>
@@ -33,7 +32,8 @@
                     <dd>{{prop.area}} {{prop.unit_built_area_label}}</dd>
                 </dl>
             </div>
-            <div class="listing-row-image" v-bind:style="prop.main_image.url">
+            <div class="listing-row-image" >
+                <img src="prop.main_image.url" alt="">
                 <a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" class="listing-row-image-link"></a>
                 <!-- <div class="listing-row-label-top listing-row-label-top-left">Featured</div> -->
                 <div class="listing-row-label-bottom">{{getPropertyType(prop.id_property_type)}}</div>
