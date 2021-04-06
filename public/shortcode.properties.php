@@ -35,6 +35,9 @@ function renderWasiProperties($parent, $atts) {
     switch($atts['layout']) {
         case 'grid':
             require_once('views/properties.grid.php');
+            break;        
+        case 'full':
+            require_once('views/properties.full.php');
             break;
 
         case 'list':
