@@ -23,7 +23,7 @@
                         } ?>
                     <?php
                     } else if($instance["btype"]=="for_rent"){ ?>
-                                           <option value="0"><?php _e('All', 'wasico'); ?></option>
+                                           <option value="for_rent"><?php _e('All', 'wasico'); ?></option>
 
                   
                     <?php
