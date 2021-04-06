@@ -15,6 +15,7 @@
                 <address v-html="prop.city_label+', '+prop.region_label"></address>
                
                 <p v-html="prop.observations"></p>
+                <p>{{prop}}</p>
                 <dl>
                     <dt><?php _e('Rooms', 'wasico'); ?></dt>
                     <dd>{{prop.bedrooms}}</dd>
