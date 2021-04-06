@@ -169,3 +169,9 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("search-btn").click()
+});
+</script>
