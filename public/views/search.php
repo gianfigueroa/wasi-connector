@@ -23,10 +23,8 @@
                         } ?>
                     <?php
                     } else { ?>
-                        <?php
-                        echo '<option  value="' . $keyAux . '" selected>' . $statusAux . '</option>';
-                        ?>
-
+                     
+                        <option value="asd">asd</option>                    
                     <?php
                     } ?>
                 </select>
