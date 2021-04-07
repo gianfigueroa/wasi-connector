@@ -25,6 +25,10 @@
   background-repeat: no-repeat;
 }
 
+.full-propierties{
+  margin: 0px !important;
+  max-width: none !important;
+}
 /**
  * Search Form
  **/

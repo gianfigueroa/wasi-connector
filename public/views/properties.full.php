@@ -1,4 +1,4 @@
-<div id="wasiApp" class="listings-row">
+<div id="wasiApp" class="listings-row full-propierties" >
 
     <div v-show="app_ready===true && loading===false && properties.length<=0" class="listings-not-found text-center" v-cloak>
         <h3><?php _e('Properties not found!', 'wasico'); ?></h3>
