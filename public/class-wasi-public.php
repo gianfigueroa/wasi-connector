@@ -49,7 +49,9 @@ class Wasi_Connector_Public {
 			// return $new_template;
 
 			//$fullpath = explode("/", $_SERVER['REQUEST_URI']);
-			$id_property = $this->getSingleIdProperty();
+			$fullpath = explode("/", $_SERVER['REQUEST_URI']);
+			$querypath=parse_url($fullpath,PHP_URL_QUERY);
+			$id_property = substr($querypath,3);
 			if (is_numeric($id_property)) {
 				$this->single_property = $this->api->getProperty($id_property);
 				if (is_wp_error( $this->single_property ) ) {
