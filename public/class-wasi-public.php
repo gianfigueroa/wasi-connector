@@ -48,10 +48,8 @@ class Wasi_Connector_Public {
 			$new_template = plugin_dir_path( __FILE__ ) . 'views/single-property.php';
 			// return $new_template;
 
-			$fullpath = explode("/", $_SERVER['REQUEST_URI']);
-			$id_property = $fullpath[ count($fullpath)-2 ];
-			$id_property = "3670108";
-
+			//$fullpath = explode("/", $_SERVER['REQUEST_URI']);
+			$id_property = $this->getSingleIdProperty();
 			if (is_numeric($id_property)) {
 				$this->single_property = $this->api->getProperty($id_property);
 				if (is_wp_error( $this->single_property ) ) {
@@ -106,8 +104,9 @@ class Wasi_Connector_Public {
 
 	public function getSingleIdProperty() {
 		$fullpath = explode("/", $_SERVER['REQUEST_URI']);
-		$id_property = $fullpath[ count($fullpath)-2 ];
-		$id_property = "3670108";
+		$querypath=parse_url($fullpath,PHP_URL_QUERY);
+		$id_property = substr($querypath,3);
+	
 
 		if (is_numeric($id_property)) {
 			return $id_property;
