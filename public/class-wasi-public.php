@@ -49,7 +49,7 @@ class Wasi_Connector_Public {
 			// return $new_template;
 
 			//$fullpath = explode("/", $_SERVER['REQUEST_URI']);
-			$fullpath = explode("/", $_SERVER['REQUEST_URI']);
+			$fullpath = $_SERVER['REQUEST_URI'];
 			$querypath=parse_url($fullpath,PHP_URL_QUERY);
 			$id_property = substr($querypath,3);
 			if (is_numeric($id_property)) {
@@ -105,7 +105,7 @@ class Wasi_Connector_Public {
 	}
 
 	public function getSingleIdProperty() {
-		$fullpath = explode("/", $_SERVER['REQUEST_URI']);
+		$fullpath = $_SERVER['REQUEST_URI'];
 		$querypath=parse_url($fullpath,PHP_URL_QUERY);
 		$id_property = substr($querypath,3);
 	
