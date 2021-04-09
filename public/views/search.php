@@ -169,7 +169,7 @@
         </div>
     </form>
 </div>
-<?php if(empty($_GET)){?>
+<?php if(empty($_GET)&& !empty($keyAux)){?>
 <script>
 
   function clickBuscar() {
