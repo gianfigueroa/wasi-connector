@@ -170,7 +170,7 @@
     </form>
 </div>
 <?php if(empty($_GET)){?>
-<script>
+<!--<script>
 
   function clickBuscar() {
     document.getElementById("search-btn").click()
@@ -180,7 +180,7 @@
 document.addEventListener("DOMContentLoaded", clickBuscar);
 
   
-</script>
+</script>-->
 <?php 
 }
 ?>
