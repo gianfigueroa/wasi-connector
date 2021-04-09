@@ -1,14 +1,7 @@
 <div id="wasiSearchApp" class="wasi_search">
     <form action="/<?php echo $properties_slug; ?>" method="GET" role="form" class="<?php echo $instance['formClass'] ?>" v-on:submit.prevent="wasiSearchProperties">
 
-        <?php if (in_array("keyword", $filter)) {
-        ?>
-            <div class="form-group">
-                <label for="keyword-match"><?php _e('Keyword:', 'wasico'); ?></label>
-                <input id="keyword-match" placeholder="<?php _e('Keyword', 'wasico'); ?>" name="match" type="text" class="form-control inp-text" v-model="filters.match">
-            </div>
-        <?php
-        } ?>
+
         <?php if (in_array("btype", $filter)) {
         ?>
             <div class="form-group">
@@ -164,23 +157,28 @@
             </div>
         <?php
         } ?>
+        <?php if (in_array("keyword", $filter)) {
+        ?>
+            <div class="form-group">
+                <label for="keyword-match"><?php _e('Keyword:', 'wasico'); ?></label>
+                <input id="keyword-match" placeholder="<?php _e('Keyword', 'wasico'); ?>" name="match" type="text" class="form-control inp-text" v-model="filters.match">
+            </div>
+        <?php
+        } ?>
         <div class="form-group col-xs-12">
             <button id="search-btn" class="<?php echo $instance['submitClass'] ?>" data-cleaned-text="!!" data-loading-text="<?php _e('Searching', 'wasico'); ?>..."><?php _e('Search'); ?></button>
         </div>
     </form>
 </div>
-<?php if(empty($_GET)&& !empty($keyAux)){?>
-<script>
+<?php if (empty($_GET) && !empty($keyAux)) { ?>
+    <script>
+        function clickBuscar() {
+            document.getElementById("search-btn").click()
 
-  function clickBuscar() {
-    document.getElementById("search-btn").click()
+        };
 
-};
-
-document.addEventListener("DOMContentLoaded", clickBuscar);
-
-  
-</script>
-<?php 
+        document.addEventListener("DOMContentLoaded", clickBuscar);
+    </script>
+<?php
 }
 ?>
