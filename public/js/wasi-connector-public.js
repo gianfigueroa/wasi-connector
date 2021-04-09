@@ -166,13 +166,14 @@ function wasiActivePageClass(page) {
 
 function wasiSearchProperties(evt, obj) {
 	// check if I'm on the properties page or if I have to redirect from another page
-	//if(is_properties_page) {
+	if(is_properties_page) {
 		this.current_page = 1;
 		wasiApp.wasiLoadProperties();
-	/*} else {
-		evt.target.action = '/' + wasi_properties_page;
+	} else {
+		evt.target.action = window.location.href;
+		//alert( evt.target.action)
 		evt.target.submit();
-	}*/
+	}
 }
 
 
