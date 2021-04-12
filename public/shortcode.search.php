@@ -16,7 +16,9 @@ function renderWasiSearch($parent, $instance) {
             'submitClass' => 'btn btn-primary',
             'filter'=>'',
             'countries'=>'',
-            'btype'=>"0"
+            'btype'=>"0",
+            'types'=>'',
+            'type'=>''
         ), $instance, 'wasi-search' );
 
     if(!$instance) { $instance = []; }
@@ -24,7 +26,9 @@ function renderWasiSearch($parent, $instance) {
     $countries=explode(",", $instance['countries']);
     $keyAux="";
     $statusAux="";
-   
+    $types=explode(",", $instance['types']);
+    $keyType="";
+    $nombreType="";
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
     $wasiCountries = $parent->getAPIClient()->getCountries();
@@ -33,6 +37,14 @@ function renderWasiSearch($parent, $instance) {
             if ($key == $instance['btype']) {
                 $keyAux=$key;
                 $statusAux=$status;
+            }
+        }
+    }
+    if (!empty($instance['type'])) {
+        foreach ($propertyTypes  as $key => $type) {
+            if ($type->id_property_type == $instance['type']) {
+                $keyType=$type->id_property_type;
+                $nombreType=$type->name;
             }
         }
     }

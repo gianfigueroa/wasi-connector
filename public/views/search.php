@@ -29,17 +29,36 @@
             </div>
         <?php
         } ?>
-
         <?php if (in_array("type", $filter)) {
         ?>
             <div class="form-group">
                 <label for="id_property_type"><?php _e('Type:', 'wasico'); ?></label>
-                <select class="selectpicker" name="id_property_type" id="id_property_type" v-model="filters.id_property_type">
-                    <option value="0"><?php _e('All', 'wasico'); ?></option>
-                    <?php foreach ($propertyTypes as $type) {
-                        echo '<option value="' . $type->id_property_type . '">' . $type->nombre . '</option>';
-                    } ?>
-                </select>
+                <?php if (empty($keyType)) {
+                ?>
+                    <select class="selectpicker" name="id_property_type" id="id_property_type" v-model="filters.id_property_type">
+                        <option value="0"><?php _e('All', 'wasico'); ?></option>
+                        <?php foreach ($propertyTypes as $type) {
+
+                            if (empty($instance['types'])) {
+                                echo '<option value="' . $type->id_property_type . '">' . $type->nombre . '</option>';
+                            } else {
+                                if (in_array($type->id_property_type, $types)) {
+                                    echo '<option value="' . $type->id_property_type . '">' . $type->nombre . '</option>';
+                                }
+                            }
+                        } ?>
+                    </select>
+                <?php
+                } else { ?>
+
+                    <select class="selectpicker" name="id_property_type" id="id_property_type">
+
+                        <?php
+                        echo '<option  value="' . $keyType . '" selected>' . $nombreType . '</option>';
+                        ?>
+                    </select>
+                <?php
+                } ?>
             </div>
         <?php
         } ?>
